@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context="com.cuizehui.Actitys.HomeActivity">
+    <TextView
+        style="@style/tv_style"
+        android:id="@+id/tv"
+        android:text="@string/hello_world"
+        android:typeface="serif"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+
+        />
+    <GridView
+        android:id="@+id/gr"
+        android:numColumns="3"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:horizontalSpacing="3dp"
+        android:verticalSpacing="3dp"
+        android:background="@android:color/background_light"
+        ></GridView>
+</LinearLayout>

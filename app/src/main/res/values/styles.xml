@@ -1,0 +1,14 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="android:Theme.Holo.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+    </style>
+
+
+    <style name="tv_style">
+        <item name="android:gravity">center</item>
+        <item name="android:background">#D9006c</item>
+    </style>
+
+</resources>

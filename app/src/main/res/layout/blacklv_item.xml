@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TextView
+    android:id="@+id/numberitem_tv"
+    android:paddingLeft="7dp"
+    android:text="18679934567"
+    android:textSize="40dp"
+    android:layout_alignParentLeft="true"
+    android:layout_width="300dp"
+    android:layout_height="80dp" />
+    <ImageView
+        android:id="@+id/delete_ImageV"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/rubash"
+        android:layout_width="70dip"
+        android:layout_height="80dip" />
+    <TextView
+        android:paddingLeft="10dp"
+        android:textSize="20dp"
+        android:id="@+id/modeitem_tv"
+        android:layout_alignBottom="@id/numberitem_tv"
+        android:layout_width="150dp"
+        android:layout_height="30dp" />
+</RelativeLayout>
