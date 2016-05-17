@@ -90,5 +90,19 @@ public class Blackmdb {
             }
 return  list;
     }
+    public int queuenumber(String number){
+         int mymode=0;
+         Cursor cursor=db.rawQuery("select * from blackman where PhoneNumber="+"\""+number+"\"",null);
+        if(cursor.moveToFirst()){
+            do{
+                mymode=cursor.getInt(cursor.getColumnIndex("mode"));
+                return mymode;
+            }while(cursor.moveToNext());
+        }
+        if(cursor!=null){
+          cursor.close();
+         }
+        return mymode;
+    }
 }
 

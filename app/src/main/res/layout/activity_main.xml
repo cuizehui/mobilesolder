@@ -5,15 +5,27 @@
     android:orientation="vertical"
     android:gravity="center"
     tools:context="com.cuizehui.Actitys.HomeActivity">
-    <TextView
-        style="@style/tv_style"
-        android:id="@+id/tv"
-        android:text="@string/hello_world"
-        android:typeface="serif"
+    <lecho.lib.hellocharts.view.PieChartView
+        android:id="@+id/pieview"
+        android:layout_width="wrap_content"
+        android:layout_height="180dp" />
+    <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="100dp"
+        android:layout_height="70dp">
+        <android.support.v4.view.ViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </android.support.v4.view.ViewPager>
+        <LinearLayout
+            android:id="@+id/points"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:orientation="horizontal">
 
-        />
+        </LinearLayout>
+    </FrameLayout>
     <GridView
         android:id="@+id/gr"
         android:numColumns="3"

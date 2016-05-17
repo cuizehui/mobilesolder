@@ -125,8 +125,8 @@ public class SpanishActivity extends Activity {
 
                     HttpURLConnection connection= (HttpURLConnection) url.openConnection();
 
-                    connection.setReadTimeout(5000);
-                    connection.setConnectTimeout(5000);
+                    connection.setReadTimeout(1000);
+                    connection.setConnectTimeout(1000);
                     connection.setRequestMethod("GET");
                     int responseCode = connection.getResponseCode();
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settingview="http://schemas.android.com/apk/com.example.cuizehui.mobilesoder"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cuizehui.Actitys.SetActivity">
+    <include layout="@layout/tool_bar"/>
+
+    <com.cuizehui.Myview.SettingView
+    android:id="@+id/setting_black"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    settingview:name="黑名单服务"
+    settingview:context="已开启">
+</com.cuizehui.Myview.SettingView>
+<com.cuizehui.Myview.SettingView
+    android:id="@+id/setting_liuliang"
+    settingview:name="流量监控服务"
+    settingview:context="已开启"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+</com.cuizehui.Myview.SettingView>
+
+    <com.cuizehui.Myview.SettingView
+        android:id="@+id/setting_lostfound"
+        settingview:name="防丢失服务"
+        settingview:context="已开启"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    </com.cuizehui.Myview.SettingView>
+
+</LinearLayout>

@@ -19,12 +19,13 @@ import domain.BlackmanBean;
 public class Mytest extends AndroidTestCase {
     public void testcreatdb(){
         Blackmdb blackmdb = Blackmdb.getInstance(getContext());
-    //  blackmdb.addblack("18679934560",1);
+     // blackmdb.addblack("18679934560",1);
     //  blackmdb.deletblack("18679934560");
       // blackmdb.changeblack("18679934560",2);
 
-       List<BlackmanBean> blacklist = blackmdb.queueblack();
-        Log.d("数据库信息",""+ blacklist.get(0).getPhonenumber()+":::"+blacklist.get(0).getMode()+"");
+       //List<BlackmanBean> blacklist = blackmdb.queueblack();
+        //Log.d("数据库信息",""+ blacklist.get(0).getPhonenumber()+":::"+blacklist.get(0).getMode()+"");
+      Log.d("数据库信息",""+ blackmdb.queuenumber("1867"));
 
     }
 

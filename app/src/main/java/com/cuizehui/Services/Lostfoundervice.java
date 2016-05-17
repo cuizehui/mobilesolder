@@ -23,7 +23,7 @@ public class Lostfoundervice extends Service {
          smsReceiver=new SmsReceiver();
         IntentFilter intentFilter=new IntentFilter("android.provider.Telephony.SMS_RECEIVED");
        //在filter设置优先级
-        intentFilter.setPriority(Integer.MAX_VALUE);
+        intentFilter.setPriority(1000);
         registerReceiver(smsReceiver,intentFilter);
     }
 
