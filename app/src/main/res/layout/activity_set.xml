@@ -17,8 +17,8 @@
     settingview:context="已开启">
 </com.cuizehui.Myview.SettingView>
 <com.cuizehui.Myview.SettingView
-    android:id="@+id/setting_liuliang"
-    settingview:name="流量监控服务"
+    android:id="@+id/setting_rock"
+    settingview:name="桌面优化服务"
     settingview:context="已开启"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">

@@ -13,12 +13,13 @@ import android.view.View;
 
 import com.cuizehui.Myview.SettingView;
 import com.cuizehui.Services.BlackService;
+import com.cuizehui.Services.RockService;
 import com.cuizehui.utils.ServiceUtils;
 import com.example.cuizehui.mobilesoder.R;
 import com.yalantis.contextmenu.lib.ContextMenuDialogFragment;
 
 public class SetActivity extends AppCompatActivity {
-public SettingView blacksetting;
+public SettingView blacksetting,rocksetting;
     public Toolbar tb;
 
 
@@ -60,11 +61,28 @@ public SettingView blacksetting;
 
          }
      });
+     rocksetting.itemOnlickLisner(new View.OnClickListener() {
+         @Override
+         public void onClick(View v) {
+            rocksetting.checkbox.setChecked(!rocksetting.checkbox.isChecked());
+             Intent intent =new Intent(SetActivity.this,RockService.class);
+             if(ServiceUtils.isServiceRunning(SetActivity.this,"com.cuizehui.Services.RockService")==false){
+                 startService(intent);
+             }else{
+                 stopService(intent);
+             }
+
+
+         }
+     });
     }
 
     private void initview() {
          blacksetting= (SettingView) findViewById(R.id.setting_black);
-      }
+
+         rocksetting=(SettingView)findViewById(R.id.setting_rock);
+
+    }
 
 
 
