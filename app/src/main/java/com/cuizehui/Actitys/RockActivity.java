@@ -3,6 +3,8 @@ package com.cuizehui.Actitys;
 import android.app.Activity;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.SystemClock;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -22,11 +24,17 @@ public class RockActivity extends Activity {
         smork1.setAnimation(aa);
         ImageView smork2= (ImageView) findViewById(R.id.smorktwo);
         smork2.setAnimation(aa);
+        /*
+        //将这个做成平移动画！
+        ImageView cloud= (ImageView) findViewById(R.id.imcloud);
+                 cloud.setAnimation(aa);
+       */
         //开启线程延时关闭
          new Thread(){
              @Override
              public void run() {
                  SystemClock.sleep(2000);
+
                  runOnUiThread(new Runnable() {
                      @Override
                      public void run() {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cuizehui.Actitys.ProgressActivity">
+<include layout="@layout/tool_bar"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        >
+        <TextView
+            android:gravity="center"
+            android:id="@+id/text_memry"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <TextView
+            android:id="@+id/progress_numtv"
+            android:layout_below="@id/text_memry"
+            android:gravity="center"
+            android:text="进程个数"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+        <ProgressBar
+
+            android:layout_below="@id/progress_numtv"
+            android:padding="5dp"
+            android:layout_marginBottom="3dp"
+            android:id="@+id/progress_progressbar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:progressDrawable="@drawable/progress_select"
+            android:layout_width="match_parent"
+            android:layout_height="30dp" />
+
+    </RelativeLayout>
+    <ListView
+        android:id="@+id/progress_lv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+</LinearLayout>

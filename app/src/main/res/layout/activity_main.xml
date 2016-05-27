@@ -3,12 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context="com.cuizehui.Actitys.HomeActivity">
+    <include layout="@layout/tool_bar"/>
+
     <lecho.lib.hellocharts.view.PieChartView
         android:id="@+id/pieview"
         android:layout_width="wrap_content"
-        android:layout_height="180dp" />
+        android:layout_height="150dp" />
     <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="70dp">
@@ -28,7 +29,7 @@
     </FrameLayout>
     <GridView
         android:id="@+id/gr"
-        android:numColumns="3"
+        android:numColumns="2"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:paddingLeft="5dp"

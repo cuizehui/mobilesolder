@@ -4,7 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/rockrelate"
+
     tools:context="com.cuizehui.Actitys.RockActivity">
+    <ImageView
+        android:id="@+id/imcloud"
+        android:layout_centerHorizontal="true"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cloud"
+        />
 <ImageView
     android:id="@+id/smorkone"
     android:layout_alignParentBottom="true"

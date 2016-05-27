@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:popitem="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <com.cuizehui.Myview.Popview
+        android:id="@+id/apk_start"
+        android:layout_width="50dp"
+        android:layout_height="40dp"
+        popitem:src="@drawable/pop_start"
+        popitem:popitemname="开启">
+        </com.cuizehui.Myview.Popview>
+
+        <com.cuizehui.Myview.Popview
+            android:id="@+id/apk_set"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            popitem:src="@drawable/pop_set"
+            popitem:popitemname="设置">
+        </com.cuizehui.Myview.Popview>
+       </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <com.cuizehui.Myview.Popview
+            android:id="@+id/apk_remove"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            popitem:src="@drawable/pop_remove"
+            popitem:popitemname="卸载">
+        </com.cuizehui.Myview.Popview>
+        <com.cuizehui.Myview.Popview
+            android:id="@+id/apk_share"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            popitem:src="@drawable/pop_share"
+            popitem:popitemname="分享">
+        </com.cuizehui.Myview.Popview>
+    </LinearLayout>
+
+
+</LinearLayout>

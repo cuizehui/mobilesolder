@@ -39,7 +39,7 @@ public SettingView blacksetting,rocksetting;
        ActionBar ab=getSupportActionBar();
         ab.setTitle("设置中心");
         if(ab!=null){
-            ab.setHomeAsUpIndicator(R.drawable.menu_home);
+            ab.setHomeAsUpIndicator(R.drawable.back);
             ab.setDisplayHomeAsUpEnabled(true);
 
         }
@@ -79,8 +79,9 @@ public SettingView blacksetting,rocksetting;
 
     private void initview() {
          blacksetting= (SettingView) findViewById(R.id.setting_black);
-
+         blacksetting.checkbox.setChecked(ServiceUtils.isServiceRunning(SetActivity.this,"com.cuizehui.Services.BlackService"));
          rocksetting=(SettingView)findViewById(R.id.setting_rock);
+        rocksetting.checkbox.setChecked( ServiceUtils.isServiceRunning(SetActivity.this,"com.cuizehui.Services.RockService"));
 
     }
 
@@ -96,5 +97,9 @@ public SettingView blacksetting,rocksetting;
         return super.onOptionsItemSelected(item);
     }
 
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
 }

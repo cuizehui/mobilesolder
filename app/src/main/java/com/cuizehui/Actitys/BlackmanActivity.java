@@ -68,7 +68,7 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
         setSupportActionBar(tb);
        ActionBar ab=getSupportActionBar();
         if(ab!=null){
-            ab.setHomeAsUpIndicator(R.drawable.menu_home);
+            ab.setHomeAsUpIndicator(R.drawable.back);
             ab.setDisplayHomeAsUpEnabled(true);
         }
         bmlistView = (ListView) findViewById(R.id.black_man_lv);
@@ -234,20 +234,20 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
        List<MenuObject> menuObjects=new ArrayList<>();
 
        MenuObject close=new  MenuObject(" 关  闭  ");
-       close.setResource(R.drawable.ic_close);
+       close.setResource(R.drawable.ic_deletex);
 
 
 
        MenuObject fromlx=new MenuObject("联系人获取");
-       fromlx.setResource(R.drawable.menu_phone);
+       fromlx.setResource(R.drawable.ic_contact);
 
 
 
        MenuObject fromsm = new MenuObject(" 短信获取 ");
-       fromsm.setResource(R.drawable.menu_user);
+       fromsm.setResource(R.drawable.ic_sms);
 
        MenuObject fromedit=new MenuObject("手动添加");
-       fromedit.setResource(R.drawable.ic_eidt);
+       fromedit.setResource(R.drawable.ic_edit);
        menuObjects.add(close);
        menuObjects.add(fromlx);
        menuObjects.add(fromsm);
@@ -278,6 +278,7 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
                  mMenuDialogFragment.show(fragmentManager,ContextMenuDialogFragment.TAG);
                  break;
              case android.R.id.home:
+                 blacklist.clear();
                  finish();
 
          }
@@ -288,7 +289,8 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        blacklist.clear();
+
+        finish();
     }
 
 

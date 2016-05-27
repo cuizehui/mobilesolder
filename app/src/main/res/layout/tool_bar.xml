@@ -4,4 +4,4 @@
     android:id="@+id/tool_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#43c292"/>
+    android:background="#FFEED2"/>

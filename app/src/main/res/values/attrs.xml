@@ -2,4 +2,9 @@
 <resources>
 <attr name="context" format="string"/>
 <attr name="name" format="string"/>
+    <declare-styleable name="Popview">
+        <attr name="src" format="reference"/>
+        <attr name="popitemname" format="string"/>
+    </declare-styleable>
+
 </resources>

@@ -45,6 +45,7 @@ public class RockService extends Service implements View.OnTouchListener {
         mLayoutParams.flags = WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE
 		/* | WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE */
                 | WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON;
+        mLayoutParams.type=WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
         mLayoutParams.gravity = Gravity.TOP | Gravity.LEFT;
         mLayoutParams.x=100;
         mLayoutParams.y=300;

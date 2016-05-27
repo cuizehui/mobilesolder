@@ -1,19 +1,18 @@
 package com.cuizehui.Actitys;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 import com.cuizehui.Adapters.GridviewAdapter;
 import com.cuizehui.Adapters.ViewPagerAdapter;
@@ -25,7 +24,7 @@ import java.util.List;
 import domain.Grbean;
 import lecho.lib.hellocharts.model.PieChartData;
 
-public class HomeActivity extends Activity {
+public class HomeActivity extends AppCompatActivity {
     GridView gridView;//Grid view
     private ViewPager vp;
     private int[] vppic;
@@ -35,10 +34,20 @@ public class HomeActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initActionbar();
         initgr();
         initviewpager();
         initpoints();
 
+
+    }
+
+    private void initActionbar() {
+      Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setTitle("主页");
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        ab.setDisplayHomeAsUpEnabled(true);
 
     }
 
@@ -92,18 +101,14 @@ public class HomeActivity extends Activity {
         //图片id初始化
         List<Grbean> list=new ArrayList();
         int  pic[]=new int[]{
-                R.drawable.down_diannaojiuyuan,
-                R.drawable.down_ruanjianguanjia,
-                R.drawable.down_qingli_group,
-                R.drawable.down_shamuma_new,
-                R.drawable.down_tijian,
-                R.drawable.down_xiufuie,
-                R.drawable.down_xiufuloudong,
-                R.drawable.gameoptimize_32,
-                R.drawable.down_youhua_group};
+                R.drawable.gv_software,
+                R.drawable.gv_speed,
+                R.drawable.gv_fangdao,
+                R.drawable.gv_refuse,
+                R.drawable.gv_flow,
+                R.drawable.gv_more};
         String name[]=new String[]{
-             "进程管理","软件管家","清理加速","木马查杀","扫描","设置","流量监控","安全卫士","加速"
-        };
+             "软件管理","清理加速","防盗追踪","黑名单","流量统计","更多"};
 
         for(int i=0;i<pic.length;i++)
         {
@@ -119,17 +124,31 @@ public class HomeActivity extends Activity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 switch (position){
-                    case 0:
+                    case 2:
+                        //防丢失
                         Intent intent1 =new Intent(HomeActivity.this,LostfindActivity.class);
                         startActivity(intent1);
                         break;
-                    case 1:
+                    case 3:
+                        //黑名单
                         Intent intent2 =new Intent(HomeActivity.this,BlackmanActivity.class);
                         startActivity(intent2);
                         break;
-                    case 4:
+                    case 5:
+                        //更多
                         Intent intent5 =new  Intent(HomeActivity.this,SetActivity.class);
                         startActivity(intent5);
+                        break;
+                    case 0:
+                        //软件管理
+                        Intent intent3=new Intent(HomeActivity.this,ApkManagerActivity.class);
+                        startActivity(intent3);
+                        break;
+                    case 1:
+                        //清理加速
+                        Intent intent4=new Intent(HomeActivity.this,ProgressActivity.class);
+                        startActivity(intent4);
+                        break;
                 }
             }
         });

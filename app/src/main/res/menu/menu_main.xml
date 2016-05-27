@@ -4,8 +4,8 @@
     tools:context="com.cuizehui.Actitys.HomeActivity">
 
     <item android:id="@+id/more"
-        android:title="更多"
-        android:icon="@drawable/ic_drag"
+        android:title=""
+        android:icon="@drawable/ic_more"
         app:showAsAction="always"
         android:orderInCategory="100"/>
 
