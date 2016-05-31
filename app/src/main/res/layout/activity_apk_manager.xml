@@ -79,14 +79,15 @@
     </LinearLayout>
     <TextView
         android:id="@+id/apkflags_tv"
-        android:textColor="#f8212121"
+        android:textColor="#e5bb81"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#FFEED2"
+        android:background="#a11715"
         />
     <ListView
         android:id="@+id/apkmassage_lv"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+        android:cacheColorHint="#a11715">
     </ListView>
 </LinearLayout>

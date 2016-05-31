@@ -3,7 +3,10 @@ package com.cuizehui.Actitys;
 import android.app.ActionBar;
 import android.app.Activity;
 import android.app.ActivityManager;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.format.Formatter;
@@ -38,9 +41,9 @@ import domain.ProgressBean;
 public class ProgressActivity extends AppCompatActivity {
 
     private ListView pg_listview;
-    private CopyOnWriteArrayList<ProgressBean> sysprogress;
-    private CopyOnWriteArrayList<ProgressBean> userprogress;
-    private List<ProgressBean> progressBeens;
+    private CopyOnWriteArrayList<ProgressBean> sysprogress= new CopyOnWriteArrayList<>();
+    private CopyOnWriteArrayList<ProgressBean> userprogress= new CopyOnWriteArrayList<>();
+    private List<ProgressBean> progressBeens=new ArrayList<>();
     private ActivityManager am;
     private PgAdapter pgadapter;
     private int cleannum=0;
@@ -54,7 +57,8 @@ public class ProgressActivity extends AppCompatActivity {
     private long liveem=0;
     //总内存
     private long tolem;
-
+    private Handler hander;
+    private  static int FINISHDATA=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,16 +66,46 @@ public class ProgressActivity extends AppCompatActivity {
         setContentView(R.layout.activity_progress);
 
         initToolbar();
-        initLV();
+
         initprogressbar();
+        initdata();
+        hander=new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what)
+                {
+                    case 1:
+                        initLV();
+                        break;
+                }
+            }
+        };
+    }
+
+    private void initdata() {
+    new Thread(){
+        @Override
+        public void run() {
+            progressBeens =  ProgressEngine.getProgressBeans(getApplicationContext());
+            for (ProgressBean progressbeen : progressBeens) {
+                if (progressbeen.isPisSystem()) {
+                    sysprogress.add(progressbeen);
+                } else {
+                    userprogress.add(progressbeen);
+                }
+            }
+            Message message=new Message();
+            message.what=FINISHDATA;
+            hander.sendMessage(message);
+        }
+    }.start();
     }
 
     private void initprogressbar() {
       memytext = (TextView) findViewById(R.id.text_memry);
         pgnum= (TextView) findViewById(R.id.progress_numtv);
-        pgnum.setText("进程个数："+(progressBeens.size()));
-       tolem=ProgressEngine.getmemeryinfo(this)[0];
-         avilem= ProgressEngine.getmemeryinfo(this)[1];
+        tolem=ProgressEngine.getmemeryinfo(this)[0];
+        avilem= ProgressEngine.getmemeryinfo(this)[1];
 
         memytext.setText("总内存信息："+Formatter.formatFileSize(this,tolem)+"   可用内存信息："+Formatter.formatFileSize(this,avilem));
         ProgressBar pbar = (ProgressBar)findViewById(R.id.progress_progressbar);
@@ -102,7 +136,10 @@ public class ProgressActivity extends AppCompatActivity {
         toolbar.setTitle("进程管理");
         setSupportActionBar(toolbar);
         android.support.v7.app.ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
+        if(ab!=null){
+            ab.setHomeAsUpIndicator(R.drawable.back);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     @Override
@@ -126,6 +163,12 @@ public class ProgressActivity extends AppCompatActivity {
                     }
                     cleanprogress(usebean);
                 }
+                for (ProgressBean sysbean:sysprogress){
+                    if (sysbean.getPackName().equals(getPackageName())) {
+                        continue;
+                    }
+                    cleanprogress(sysbean);
+                }
 
                 Toast.makeText(this,"清理"+cleannum+"个进程    "+"释放了"+Formatter.formatFileSize(this,liveem)+"内存",Toast.LENGTH_SHORT).show();
 
@@ -140,18 +183,9 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     private void initLV() {
+        pgnum.setText("进程个数："+(progressBeens.size()));
         pg_listview = (ListView) findViewById(R.id.progress_lv);
         //获取数据：
-        sysprogress = new CopyOnWriteArrayList<>();
-        userprogress = new CopyOnWriteArrayList<>();
-        progressBeens =  ProgressEngine.getProgressBeans(this);
-        for (ProgressBean progressbeen : progressBeens) {
-            if (progressbeen.isPisSystem()) {
-                sysprogress.add(progressbeen);
-            } else {
-                userprogress.add(progressbeen);
-            }
-        }
 
         pgadapter = new PgAdapter();
         pg_listview.setAdapter(pgadapter);
@@ -237,6 +271,8 @@ public class ProgressActivity extends AppCompatActivity {
             if (position == userprogress.size()) {
                 TextView textView = new TextView(getApplicationContext());
                 textView.setText("用户进程：");
+                textView.setTextColor(Color.argb(255,229,187,129));
+                textView.setBackgroundColor(Color.argb(255,161,23,21));
                 return textView;
             } else {
 

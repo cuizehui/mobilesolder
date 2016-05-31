@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<attr name="context" format="string"/>
-<attr name="name" format="string"/>
+    <declare-styleable name="SettingView">
+        <attr name="context" format="string"/>
+        <attr name="name" format="string"/>
+        <attr name="image" format="reference"/>
+    </declare-styleable>
     <declare-styleable name="Popview">
         <attr name="src" format="reference"/>
         <attr name="popitemname" format="string"/>

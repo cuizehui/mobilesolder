@@ -63,10 +63,10 @@ public class SpanishActivity extends Activity {
                         Toast.makeText(SpanishActivity.this, "有更新", Toast.LENGTH_LONG).show();
                         break;
                     case WUFUWU:
-                        Toast.makeText(SpanishActivity.this,"无服务",Toast.LENGTH_LONG).show();
-                    Intent intent1=new Intent(SpanishActivity.this,HomeActivity.class);
-                    startActivity(intent1);
-                    finish();
+                       // Toast.makeText(SpanishActivity.this,"无服务",Toast.LENGTH_LONG).show();
+                      Intent intent1=new Intent(SpanishActivity.this,HomeActivity.class);
+                      startActivity(intent1);
+                      finish();
                         break;
                 }
 
@@ -125,8 +125,8 @@ public class SpanishActivity extends Activity {
 
                     HttpURLConnection connection= (HttpURLConnection) url.openConnection();
 
-                    connection.setReadTimeout(2000);
-                    connection.setConnectTimeout(2000);
+                    connection.setReadTimeout(3000);
+                    connection.setConnectTimeout(3000);
                     connection.setRequestMethod("GET");
                     int responseCode = connection.getResponseCode();
 

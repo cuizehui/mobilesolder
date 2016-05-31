@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:settingview="http://schemas.android.com/apk/com.example.cuizehui.mobilesoder"
+    xmlns:settingview="http://schemas.android.com/apk/res-auto"
 
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -13,6 +13,7 @@
     android:id="@+id/setting_black"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+        settingview:image="@drawable/gv_refuse"
     settingview:name="黑名单服务"
     settingview:context="已开启">
 </com.cuizehui.Myview.SettingView>
@@ -20,6 +21,7 @@
     android:id="@+id/setting_rock"
     settingview:name="桌面优化服务"
     settingview:context="已开启"
+    settingview:image="@drawable/monkeythree"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 </com.cuizehui.Myview.SettingView>
@@ -28,6 +30,7 @@
         android:id="@+id/setting_lostfound"
         settingview:name="防丢失服务"
         settingview:context="已开启"
+        settingview:image="@drawable/gv_fangdao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
     </com.cuizehui.Myview.SettingView>

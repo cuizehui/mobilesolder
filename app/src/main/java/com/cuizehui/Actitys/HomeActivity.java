@@ -36,8 +36,8 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initActionbar();
         initgr();
-        initviewpager();
-        initpoints();
+       // initviewpager();
+       //  initpoints();
 
 
     }
@@ -52,7 +52,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
 
-    private void initpoints() {
+  /*  private void initpoints() {
         LinearLayout ll= (LinearLayout) findViewById(R.id.points);
         for(int i=0;i<vppic.length;i++){
             ImageView imageview=new ImageView(this);
@@ -64,19 +64,19 @@ public class HomeActivity extends AppCompatActivity {
             }
             ll.addView(imageview);
         }
-    }
+    }*/
 
 
     /**
      * 初始化viewpager
      */
-    private void initviewpager() {
+   /* private void initviewpager() {
         vp= (ViewPager) findViewById(R.id.view_pager);
         ViewPagerAdapter vpadapter=new ViewPagerAdapter(getImageviews(),this);
         vp.setAdapter(vpadapter);
 
-    }
-    private List<ImageView> getImageviews() {
+    }*/
+    /*private List<ImageView> getImageviews() {
        List<ImageView> imageviews=new ArrayList<>();
         vppic =new int[]{
             R.drawable.down_diannaojiuyuan,
@@ -91,7 +91,7 @@ public class HomeActivity extends AppCompatActivity {
                imageviews.add(imageview);
            }
         return  imageviews;
-    }
+    }*/
 
     /**
      * 初始化gridview
@@ -148,6 +148,10 @@ public class HomeActivity extends AppCompatActivity {
                         //清理加速
                         Intent intent4=new Intent(HomeActivity.this,ProgressActivity.class);
                         startActivity(intent4);
+                        break;
+                    case 4:
+                        Intent intent6=new Intent(HomeActivity.this,FlowDataActivity.class);
+                        startActivity(intent6);
                         break;
                 }
             }

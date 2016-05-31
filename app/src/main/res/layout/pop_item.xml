@@ -12,7 +12,7 @@
 
         />
     <TextView
-        android:textColor="#f8212121"
+        android:textColor="#732c96"
         android:id="@+id/popitem_name"
         android:textSize="11dip"
         android:layout_width="wrap_content"

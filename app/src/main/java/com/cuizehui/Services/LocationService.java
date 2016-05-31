@@ -64,7 +64,7 @@ public class LocationService extends Service {
                 locationtext.append("经度"+latitude);
                 locationtext.append("纬度"+longitude);
                 //发送短信
-                safenumber= Sptools.getsetsp(getApplicationContext(),"safenumber");
+                safenumber= Sptools.getString(getApplicationContext(),"安全号码");
                 SmsManager smsManager=SmsManager.getDefault();
                 smsManager.sendTextMessage(safenumber,"",locationtext.toString(),null,null);
 

@@ -6,6 +6,16 @@ import android.graphics.drawable.Drawable;
  * Created by cuizehui on 2016/5/21.
  */
 public class ApkBean {
+     int apkuid;
+
+    public int getApkuid() {
+        return apkuid;
+    }
+
+    public void setApkuid(int apkuid) {
+        this.apkuid = apkuid;
+    }
+
     String apkname;
      long apKsize;
      String packgename;

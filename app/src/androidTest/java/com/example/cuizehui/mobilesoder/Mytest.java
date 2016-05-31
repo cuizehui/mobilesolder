@@ -39,6 +39,7 @@ public class Mytest extends AndroidTestCase {
             Log.d("应用信息size",apkBean.getApKsize()+"");
             Log.d("应用信息flag",apkBean.getApkflag()+"");
             Log.d("应用信息pic",apkBean.getApkpicture()+"");
+            Log.d("uid",apkBean.getApkuid()+"");
         }
     }
     public  void testTask(){

@@ -32,6 +32,7 @@ public class ApkEngine {
             apkBean.setApkpicture(packinfo.applicationInfo.loadIcon(packageManager));
             apkBean.setApkpicture(packinfo.applicationInfo.loadIcon(packageManager));
             apkBean.setPackgename(packinfo.packageName);
+            apkBean.setApkuid(packinfo.applicationInfo.uid);
             String dir = packinfo.applicationInfo.sourceDir;
             File file = new File(dir);
             apkBean.setApKsize(file.length());

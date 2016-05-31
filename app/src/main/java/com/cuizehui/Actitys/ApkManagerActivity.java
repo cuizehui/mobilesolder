@@ -7,6 +7,8 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.service.voice.VoiceInteractionSession;
 import android.support.annotation.ColorRes;
 import android.support.v7.app.ActionBar;
@@ -49,9 +51,9 @@ import domain.ApkBean;
 public class ApkManagerActivity extends AppCompatActivity {
 
     private ListView apklv;
-    List<ApkBean> apkInfosList;
-    List<ApkBean> sysApkList;
-    List<ApkBean> nomalApklist;
+    List<ApkBean> apkInfosList=new ArrayList<>();
+    List<ApkBean> sysApkList=new ArrayList<>();
+    List<ApkBean> nomalApklist=new ArrayList<>();
     private TextView apkflagstv;
     private android.support.v7.widget.Toolbar tb;
     private PopupWindow popupWindow;
@@ -61,6 +63,8 @@ public class ApkManagerActivity extends AppCompatActivity {
     private ScaleAnimation sa;
     //POPwindow的view
     private View popview;
+    private Handler handler;
+    private static int FINISHDATA=1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,8 +73,40 @@ public class ApkManagerActivity extends AppCompatActivity {
         pm = getPackageManager();
         initprogressbar();
         inittoolbar();
-        initapklv();
+
         initPpwindow();
+        initdata();
+        handler=new Handler(){
+            @Override
+            public void handleMessage(Message msg) {
+                switch (msg.what){
+                    case 1:
+                        initapklv();
+                        break;
+                }
+            }
+        };
+    }
+//加载数据
+    private void initdata() {
+        new Thread(){
+            @Override
+            public void run() {
+                apkInfosList = ApkEngine.getApkMassage(getApplicationContext());
+
+                for (ApkBean apk : apkInfosList) {
+                    if (apk.getApkflag()) {
+                        sysApkList.add(apk);
+                    } else {
+                        nomalApklist.add(apk);
+                    }
+                }
+                Message message=new Message();
+                message.what=FINISHDATA;
+                handler.sendMessage(message);
+            }
+        }.start();
+
     }
 
     private void initprogressbar() {
@@ -116,8 +152,10 @@ public class ApkManagerActivity extends AppCompatActivity {
         tb.setTitle("软件管理");
         setSupportActionBar(tb);
         ActionBar ab = getSupportActionBar();
-        ab.setDisplayHomeAsUpEnabled(true);
-
+        if(ab!=null){
+            ab.setHomeAsUpIndicator(R.drawable.back);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
     //顶部菜单栏
@@ -188,19 +226,11 @@ public class ApkManagerActivity extends AppCompatActivity {
 
     }
 
+//这是一个耗时操作
     private void initapklv() {
         apkflagstv = (TextView) findViewById(R.id.apkflags_tv);
         apklv = (ListView) findViewById(R.id.apkmassage_lv);
-        apkInfosList = ApkEngine.getApkMassage(this);
-        sysApkList = new ArrayList<ApkBean>();
-        nomalApklist = new ArrayList<ApkBean>();
-        for (ApkBean apk : apkInfosList) {
-            if (apk.getApkflag()) {
-                sysApkList.add(apk);
-            } else {
-                nomalApklist.add(apk);
-            }
-        }
+
         final ApkAdapter apkadapter = new ApkAdapter();
         apklv.setAdapter(apkadapter);
         //设置listview滑动事件
@@ -226,6 +256,7 @@ public class ApkManagerActivity extends AppCompatActivity {
                 }
             }
         });
+
         apklv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             /**
              * @param parent
@@ -293,8 +324,8 @@ public class ApkManagerActivity extends AppCompatActivity {
             if (position == nomalApklist.size()) {
                 TextView textview = new TextView(getApplicationContext());
                 textview.setText("系统应用");
-                textview.setTextColor(Color.BLACK);
-                textview.setBackgroundColor(Color.argb(255,255,238,210));
+                textview.setTextColor(Color.argb(255,229,187,129));
+                textview.setBackgroundColor(Color.argb(255,161,23,21));
                 return textview;
             } else {
                 //布局的复用

@@ -48,7 +48,7 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
     AlertDialog alertDialog;//对话框
     BlackmanlvAdaper blvadapter;//黑名单adapter
     List<BlackmanBean> blacklist; //黑名单list
-    //不拦截是0 短信模式是1 电话模式是2 全部模式是3
+    //不拦截是0 短信模式是1 电话模式是2 全部模式是 3
     int modesms = 0;
     int modephone = 0;
     private final int  DownLoad=1;
@@ -260,6 +260,8 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
        menuParams.setMenuObjects(getMenulist());
        menuParams.setActionBarSize((int)getResources().getDimension(R.dimen.tool_bar_height));
        menuParams.setClosableOutside(true);
+       menuParams.setAnimationDuration(60);
+
        mMenuDialogFragment = ContextMenuDialogFragment.newInstance(menuParams);
        mMenuDialogFragment.setItemClickListener(this);
    }
@@ -276,6 +278,7 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
          switch(item.getItemId()){
             case R.id.more:
                  mMenuDialogFragment.show(fragmentManager,ContextMenuDialogFragment.TAG);
+
                  break;
              case android.R.id.home:
                  blacklist.clear();

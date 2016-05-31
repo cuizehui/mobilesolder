@@ -2,17 +2,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="80dip">
+    android:layout_height="60dip">
+    <ImageView
+        android:id="@+id/service_image"
+        android:layout_marginLeft="10dp"
+        android:layout_width="40dip"
+        android:layout_height="40dip" />
    <TextView
        android:id="@+id/checkbox_name"
-       android:textSize="30dip"
+       android:textSize="20dip"
        android:padding="3dp"
+       android:textColor="#732c96"
+       android:layout_toRightOf="@id/service_image"
        android:layout_width="wrap_content"
        android:layout_height="wrap_content" />
     <TextView
-        android:layout_below="@+id/checkbox_name"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@id/service_image"
         android:textSize="18sp"
-
+        android:textColor="#732c96"
         android:id="@+id/checkbox_current"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />

@@ -10,6 +10,7 @@ import android.telephony.SmsMessage;
 import android.util.Log;
 
 import com.cuizehui.Services.LocationService;
+import com.cuizehui.sharedprefences.Sptools;
 
 /**
  * 拦截手机短信进行判断  获取短信内容。如果是特定字符端则执行操作
@@ -32,7 +33,8 @@ public class SmsReceiver extends BroadcastReceiver {
             String body = smsMessage.getDisplayMessageBody();
             String address = smsMessage.getDisplayOriginatingAddress();
             Log.d("信息",body+":"+address);
-            if(body.equals("lost")){
+            String lost= Sptools.getString(context,"安全口令");
+            if(body.equals(lost)){
                 Intent locationintent=new Intent(context,LocationService.class);
                 context.startService(locationintent);
             }
