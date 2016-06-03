@@ -2,6 +2,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="false">
 
-    <item android:drawable="@drawable/monkeyred" android:duration="50" />
-    <item  android:drawable="@drawable/monkeythree" android:duration="50"/>
+    <item android:drawable="@drawable/monkey" android:duration="50" />
+    <item  android:drawable="@drawable/monkeyred" android:duration="50"/>
 </animation-list>

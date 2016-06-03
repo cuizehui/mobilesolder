@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">超级手机助手</string>
+    <string name="app_name">叶子助手</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
@@ -8,4 +8,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_option">选项</string>
+    <string name="menu_user">个人中心</string>
+    <string name="menu_feedback">意见反馈</string>
+    <string name="menu_phone">客服电话</string>
+    <string name="menu_about">关于作者</string>
 </resources>

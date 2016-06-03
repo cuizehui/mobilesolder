@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center">
+
     <!--center 将里面的内容都居中了-->
     <android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+
+
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        card_view:cardBackgroundColor="#220807"
+        card_view:cardCornerRadius="20dp"
+        android:elevation="20dp"
+        >
         <LinearLayout
+            android:background="#FFFFFF"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
             android:gravity="center">
             <com.cuizehui.Myview.gritemveiw
-                android:id="@+id/item_iv"
+                 android:id="@+id/item_iv"
                 android:layout_width="65dip"
                 android:layout_height="65dip"
                 />
@@ -24,10 +29,9 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="#000000"/>
+                android:textColor="#a11715"/>
 
         </LinearLayout>
 
     </android.support.v7.widget.CardView>
 
-</LinearLayout>

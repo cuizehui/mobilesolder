@@ -18,7 +18,7 @@ public class RockActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rock);
-       ImageView smork1= (ImageView) findViewById(R.id.smorkone);
+        ImageView smork1= (ImageView) findViewById(R.id.smorkone);
         AlphaAnimation aa=new AlphaAnimation(0,1);
         aa.setDuration(2000);
         smork1.setAnimation(aa);

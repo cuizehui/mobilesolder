@@ -102,11 +102,11 @@ public class ProgressActivity extends AppCompatActivity {
     }
 
     private void initprogressbar() {
-      memytext = (TextView) findViewById(R.id.text_memry);
+       memytext = (TextView) findViewById(R.id.text_memry);
         pgnum= (TextView) findViewById(R.id.progress_numtv);
         tolem=ProgressEngine.getmemeryinfo(this)[0];
         avilem= ProgressEngine.getmemeryinfo(this)[1];
-
+        pgnum.setText("正在加载请稍后......");
         memytext.setText("总内存信息："+Formatter.formatFileSize(this,tolem)+"   可用内存信息："+Formatter.formatFileSize(this,avilem));
         ProgressBar pbar = (ProgressBar)findViewById(R.id.progress_progressbar);
         String tolermem= Formatter.formatFileSize(this,tolem);

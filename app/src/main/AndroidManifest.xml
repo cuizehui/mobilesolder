@@ -17,7 +17,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/app"
         android:label="@string/app_name"
         android:theme="@style/Base.Theme.AppCompat.Light">
         <activity
@@ -92,7 +92,8 @@
             android:name="com.cuizehui.Actitys.FlowDataActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name="com.cuizehui.Actitys.RegisteActivity" />
-        <activity android:name="com.cuizehui.Actitys.SetsafeMsActivity"></activity>
+        <activity android:name="com.cuizehui.Actitys.SetsafeMsActivity" />
+        <activity android:name="com.cuizehui.Actitys.problemActivity"></activity>
     </application>
 
 </manifest>

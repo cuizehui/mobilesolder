@@ -292,7 +292,7 @@ public class BlackmanActivity extends AppCompatActivity implements OnMenuItemCli
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-
+        blacklist.clear();
         finish();
     }
 
